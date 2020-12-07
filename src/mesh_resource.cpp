@@ -150,7 +150,7 @@ bool getLinkMesh(
         return false;
     }
 
-    boost::shared_ptr<const urdf::Link> link = model.getLink(name);
+    std::shared_ptr<const urdf::Link> link = model.getLink(name);
     if (!link) {
         ROS_ERROR("Failed to find link '%s' in URDF.", name.c_str());
         return false;
@@ -164,7 +164,7 @@ bool getLinkMesh(
         return false;
     }
 
-    boost::shared_ptr<const urdf::Geometry> geom;
+    std::shared_ptr<const urdf::Geometry> geom;
     if (collision) {
         geom = link->visual->geometry;
         pose.pose.position.x = link->visual->origin.position.x;
